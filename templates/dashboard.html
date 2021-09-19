@@ -1,0 +1,48 @@
+{% extends 'lay.html' %}
+{% block body %}
+
+<h4>Dashboard</h4>
+<hr>
+<p>
+    Welcome {{request.user.username}}
+</p>
+<hr>
+<a class = "btn btn-info" href="/articles/addArticle">Add Article</a>
+<hr>
+{% if articles %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for article in articles %}
+          <tr>
+            <th scope="row">{{article.id}}</th>
+            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+            <td>{{article.author.username}}</td>
+            <td>{{article.created_date}}</td>
+            <td><a href="/articles/update/{{article.id}}" class = "btn btn-warning">Update</a></td>
+            <td><a href="/articles/delete/{{article.id}}" class = "btn btn-danger">Delete</a> </td>
+              
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+{% else %}
+
+<div class = "alert alert-danger">
+    You do not have any article.
+
+</div>
+{% endif %}
+
+
+{% endblock body %}

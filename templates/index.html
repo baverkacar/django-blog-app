@@ -1,0 +1,12 @@
+<!--- bu html klasörü lay.html klasöründen miras alıyor.-->
+
+{% extends 'lay.html' %}
+
+<!-- lay.html içinde oluşturduğumuz block body'sini sayfamıza göre alıp değiştirdik.-->
+{% block body %}
+    <div class="jumbotron text-center" style="background-color: #75727cd5;">
+        <h1>Welcome to My Blog Site.</h1>
+        <p style="color: rgb(255, 255, 255); font-size: 30px;" >In this site you can share your thinks or articles to teach others.</p>
+    </div>
+    
+{% endblock body %}
